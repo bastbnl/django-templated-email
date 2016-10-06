@@ -18,7 +18,8 @@ class GetTemplatedMailTestCase(TestCase):
         'template_suffix': 'suffix',
         'template_dir': 'dirp',
         'file_extension': 'ext',
-    } 
+        'create_link': False,
+    }
 
     @patch('templated_email.TemplateBackend')
     def test_get_templated_mail_returns_response_of_get_email_message(
@@ -63,4 +64,3 @@ class GetTemplatedMailTestCase(TestCase):
         kwargs['template_prefix'] = kwargs.pop('template_dir')
         kwargs['template_suffix'] = kwargs.pop('file_extension')
         get_email_message.assert_called_with(*self.TEST_ARGS, **kwargs)
-

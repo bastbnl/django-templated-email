@@ -267,6 +267,7 @@ class TemplateBackendTestCase(MockedNetworkTestCaseMixin,
             'file_extension': 'ext',
             'auth_user': 'vintasoftware',
             'auth_password': 'password',
+            'create_link': False,
         }
 
         send_mock = get_email_message_mock.return_value.send
@@ -288,6 +289,7 @@ class TemplateBackendTestCase(MockedNetworkTestCaseMixin,
             template_suffix=kwargs['template_suffix'],
             template_dir=kwargs['template_dir'],
             file_extension=kwargs['file_extension'],
+            create_link=kwargs['create_link'],
             attachments=None,
         )
         send_mock.assert_called_with(
